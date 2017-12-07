@@ -52,7 +52,7 @@ namespace SQLite11
             var Insert = new Button
             {
                 WidthRequest = 60,
-                Text = "Insert!",
+                Text = "保存",
                 TextColor = Color.Red,
             };
             insertEntry = new Entry
@@ -63,8 +63,16 @@ namespace SQLite11
             Insert.Clicked += InsertClicked;
             layout.Children.Add(insertEntry);
 
+            insertEntry = new Entry
+            {
+                WidthRequest = 60
+            };
+            layout.Children.Add(Insert);
+            Insert.Clicked += InsertClicked;
+            layout.Children.Add(insertEntry);
+
             //--------------------------------deleteします------------------------------
-            var Delete = new Button
+            /*var Delete = new Button
             {
                 WidthRequest = 60,
                 Text = "Delete!",
@@ -82,7 +90,7 @@ namespace SQLite11
             */
 
             //--------------------------------selectします------------------------------
-            var Select = new Button
+           /* var Select = new Button
             {
                 WidthRequest = 60,
                 Text = "Select!",
@@ -90,6 +98,8 @@ namespace SQLite11
             };
             layout.Children.Add(Select);
             Select.Clicked += SelectClicked;
+
+            */
 
             Content = layout;
         }
@@ -103,20 +113,23 @@ namespace SQLite11
             //Userテーブルに適当なデータを追加する
             UserModel.insertUser(InsertName);
 
+            Navigation.PushAsync(new SubPage());
+
         }
 
         //deleteイベントハンドラ
-        void DeleteClicked(object sender, EventArgs e)
+        /*void DeleteClicked(object sender, EventArgs e)
         {
             //UserModel.deleteUser(deleteId);
             UserModel.deleteUser(1);
 
         }
+        */
 
         //selectイベントハンドラ
-        void SelectClicked(object sender, EventArgs e)
+       /* void SelectClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SubPage());
+
 
             //Userテーブルの行データを取得
             var query = UserModel.selectUser(); //中身はSELECT * FROM [User]
@@ -150,9 +163,8 @@ namespace SQLite11
             Insert.Clicked += InsertClicked;
             layout.Children.Add(insertEntry);
 
-            Navigation.PushAsync(new SubPage());
+        */
 
-            Content = layout;
 
 
             /*
@@ -175,4 +187,4 @@ namespace SQLite11
                 Content = scrollView;*/
         }
     }
-}
+

@@ -12,9 +12,39 @@ namespace SQLite11
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SubPage : ContentPage
     {
+        private int deleteId;
+
         public SubPage()
         {
             InitializeComponent();
+
+            //Userテーブルの行データを取得
+            var query = UserModel.selectUser(); //中身はSELECT * FROM [User]
+            var layout = new StackLayout { HorizontalOptions = LayoutOptions.Center, Margin = new Thickness { Top = 100 } };
+            foreach (var user in query)
+            {
+                //Userテーブルの名前列をLabelに書き出す
+                layout.Children.Add(new Label { Text = user.Name });
+            }
+
+            var Delete = new Button
+            {
+                WidthRequest = 60,
+                Text = "Delete!",
+                TextColor = Color.Red,
+            };
+            layout.Children.Add(Delete);
+            Delete.Clicked += DeleteClicked;
+
+            //deleteイベントハンドラ
+            void DeleteClicked(object sender, EventArgs e)
+            {
+                //UserModel.deleteUser(deleteId);
+                UserModel.deleteUser(1);
+
+            }
+
+            Content = layout;
         }
     }
 }
