@@ -39,8 +39,8 @@ namespace SQLite11
             //deleteイベントハンドラ
             void DeleteClicked(object sender, EventArgs e)
             {
-                UserModel.deleteUser(deleteId);
-                //UserModel.deleteUser(1);
+                //UserModel.deleteUser(deleteId);
+                UserModel.deleteUser(1);
 
             }
             　
