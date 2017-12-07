@@ -62,13 +62,6 @@ namespace SQLite11
             layout.Children.Add(Insert);
             Insert.Clicked += InsertClicked;
             layout.Children.Add(insertEntry);
-
-            insertEntry = new Entry
-            {
-                WidthRequest = 60
-            };
-            layout.Children.Add(Insert);
-            Insert.Clicked += InsertClicked;
             layout.Children.Add(insertEntry);
 
             //--------------------------------deleteします------------------------------
@@ -90,16 +83,16 @@ namespace SQLite11
             */
 
             //--------------------------------selectします------------------------------
-           /* var Select = new Button
-            {
-                WidthRequest = 60,
-                Text = "Select!",
-                TextColor = Color.Red,
-            };
-            layout.Children.Add(Select);
-            Select.Clicked += SelectClicked;
+            /* var Select = new Button
+             {
+                 WidthRequest = 60,
+                 Text = "Select!",
+                 TextColor = Color.Red,
+             };
+             layout.Children.Add(Select);
+             Select.Clicked += SelectClicked;
 
-            */
+             */
 
             Content = layout;
         }
