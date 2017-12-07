@@ -36,8 +36,8 @@ namespace SQLite11
         */
 
 
-        //private Entry insertEntry; //insertの入力フィールド
-        private Editor insertEditor;
+        private Entry insertEntry; //insertの入力フィールド
+        //private Editor insertEditor;
         private Entry deleteEntry; //deleteの入力フィールド
         private int deleteId; //削除Idフィールド
 
@@ -56,21 +56,21 @@ namespace SQLite11
                 Text = "保存",
                 TextColor = Color.Red,
             };
-            insertEditor = new Editor
+            insertEntry = new Entry
             {
                 WidthRequest = 60
             };
             layout.Children.Add(Insert);
             Insert.Clicked += InsertClicked;
-            layout.Children.Add(insertEditor);
+            layout.Children.Add(insertEntry);
 
-            insertEditor = new Editor
+            insertEntry = new Entry
             {
                 WidthRequest = 60
             };
             layout.Children.Add(Insert);
             Insert.Clicked += InsertClicked;
-            layout.Children.Add(insertEditor);
+            layout.Children.Add(insertEntry);
 
             //--------------------------------deleteします------------------------------
             /*var Delete = new Button
@@ -109,12 +109,13 @@ namespace SQLite11
         //insertイベントハンドラ
         void InsertClicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new SubPage());
 
-            var InsertName = insertEditor.Text;
+            var InsertName = insertEntry.Text;
             //Userテーブルに適当なデータを追加する
             UserModel.insertUser(InsertName);
 
-            Navigation.PushAsync(new SubPage());
+
 
         }
 
