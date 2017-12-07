@@ -110,7 +110,7 @@ namespace SQLite11
         void InsertClicked(object sender, EventArgs e)
         {
 
-            var InsertName = insertEntry.Text;
+            var InsertName = insertEditor.Text;
             //Userテーブルに適当なデータを追加する
             UserModel.insertUser(InsertName);
 
