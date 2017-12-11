@@ -109,11 +109,13 @@ namespace SQLite11
         //insertイベントハンドラ
         void InsertClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SubPage());
+
 
             var InsertName = insertEntry.Text;
             //Userテーブルに適当なデータを追加する
             UserModel.insertUser(InsertName);
+
+            Navigation.PushAsync(new SubPage());
 
 
 
@@ -129,64 +131,66 @@ namespace SQLite11
         */
 
         //selectイベントハンドラ
-       /* void SelectClicked(object sender, EventArgs e)
-        {
+        /* void SelectClicked(object sender, EventArgs e)
+         {
 
 
-            //Userテーブルの行データを取得
+             //Userテーブルの行データを取得
+             var query = UserModel.selectUser(); //中身はSELECT * FROM [User]
+             var layout = new StackLayout { HorizontalOptions = LayoutOptions.Center, Margin = new Thickness { Top = 100 } };
+             foreach (var user in query)
+             {
+                 //Userテーブルの名前列をLabelに書き出す
+                 layout.Children.Add(new Label { Text = user.Name });
+             }
+             //selectする
+             var Select = new Button
+             {
+                 WidthRequest = 60,
+                 Text = "Select!",
+                 TextColor = Color.Red,
+             };
+             layout.Children.Add(Select);
+             Select.Clicked += SelectClicked;
+             //insertする
+             var Insert = new Button
+             {
+                 WidthRequest = 60,
+                 Text = "Insert!",
+                 TextColor = Color.Red,
+             };
+             insertEntry = new Entry
+             {
+                 WidthRequest = 60
+             };
+             layout.Children.Add(Insert);
+             Insert.Clicked += InsertClicked;
+             layout.Children.Add(insertEntry);
+
+         */
+
+
+
+        /*
             var query = UserModel.selectUser(); //中身はSELECT * FROM [User]
-            var layout = new StackLayout { HorizontalOptions = LayoutOptions.Center, Margin = new Thickness { Top = 100 } };
             foreach (var user in query)
             {
-                //Userテーブルの名前列をLabelに書き出す
-                layout.Children.Add(new Label { Text = user.Name });
+                var sb = new Label { Text = user.Name };
             }
-            //selectする
-            var Select = new Button
+            var scrollView = new ScrollView
             {
-                WidthRequest = 60,
-                Text = "Select!",
-                TextColor = Color.Red,
-            };
-            layout.Children.Add(Select);
-            Select.Clicked += SelectClicked;
-            //insertする
-            var Insert = new Button
-            {
-                WidthRequest = 60,
-                Text = "Insert!",
-                TextColor = Color.Red,
-            };
-            insertEntry = new Entry
-            {
-                WidthRequest = 60
-            };
-            layout.Children.Add(Insert);
-            Insert.Clicked += InsertClicked;
-            layout.Children.Add(insertEntry);
-
-        */
-
-
-
-            /*
-                var query = UserModel.selectUser(); //中身はSELECT * FROM [User]
-                foreach (var user in query)
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                //ラベルを配置する
+                Content = new Label
                 {
-                    var sb = new Label { Text = user.Name };
+                    Text = sb.ToString(),
+                    FontSize = 20,
+                    TextColor = Color.Red,
                 }
-                var scrollView = new ScrollView
-                {
-                    VerticalOptions = LayoutOptions.FillAndExpand,
-                    //ラベルを配置する
-                    Content = new Label
-                    {
-                        Text = sb.ToString(),
-                        FontSize = 20,
-                        TextColor = Color.Red,
-                    }
-                };
-                Content = scrollView;*/
+            };
+            Content = scrollView;*/
+
+
         }
     }
 
