@@ -26,6 +26,7 @@ namespace SQLite11
             {
                 //Userテーブルの名前列をLabelに書き出す
                 layout.Children.Add(new Label { Text = user.Name });
+                layout.Children.Add(new Label { Text = user.Name });
             }
 
             var Delete = new Button
