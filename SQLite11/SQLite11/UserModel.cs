@@ -33,7 +33,6 @@ namespace SQLite11
 
                     //Userテーブルに行追加します
                     db.Insert(new UserModel() { Name = name });
-                    db.Insert(new UserModel() { Name = name });
 
                     db.Commit();
 
