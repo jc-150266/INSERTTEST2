@@ -119,7 +119,7 @@ namespace SQLite11
 
         }
 
-        //insertイベントハンドラ
+        //insertイベントハンドラ2
         void InsertClicked2(object sender, EventArgs e)
         {
 
