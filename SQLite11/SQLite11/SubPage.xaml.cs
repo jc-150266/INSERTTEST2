@@ -13,6 +13,7 @@ namespace SQLite11
     public partial class SubPage : ContentPage
     {
         private int deleteId;
+        private Entry deleteEntry;
 
         public SubPage()
         {
@@ -36,6 +37,13 @@ namespace SQLite11
             layout.Children.Add(Delete);
             Delete.Clicked += DeleteClicked;
 
+            deleteEntry = new Entry
+            {
+                WidthRequest = 60,
+            };
+            layout.Children.Add(deleteEntry);
+            deleteId = int.Parse(deleteEntry.Text);
+
 
             Content = layout;
 
@@ -44,8 +52,6 @@ namespace SQLite11
             {
                 //UserModel.deleteUser(deleteId);
                 UserModel.deleteUser(1);
-
-                Navigation.PushAsync(new Subpage2());
             }
 
          }   
