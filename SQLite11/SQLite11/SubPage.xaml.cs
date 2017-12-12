@@ -30,11 +30,14 @@ namespace SQLite11
             var Delete = new Button
             {
                 WidthRequest = 60,
-                Text = "Delete!",
+                Text = "削除",
                 TextColor = Color.Red,
             };
             layout.Children.Add(Delete);
             Delete.Clicked += DeleteClicked;
+
+
+            Content = layout;
 
             //deleteイベントハンドラ
             void DeleteClicked(object sender, EventArgs e)
@@ -42,9 +45,10 @@ namespace SQLite11
                 //UserModel.deleteUser(deleteId);
                 UserModel.deleteUser(1);
 
+                Navigation.PushAsync(new Subpage2());
             }
-            　
-            Content = layout;
-        }
+
+         }   
     }
-}
+}       
+        
