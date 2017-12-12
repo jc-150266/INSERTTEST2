@@ -69,7 +69,7 @@ namespace SQLite11
                 WidthRequest = 60
             };
             layout.Children.Add(Insert);
-            Insert.Clicked += InsertClicked;
+            Insert.Clicked += InsertClicked2;
             layout.Children.Add(insertEntry);
 
             //--------------------------------deleteします------------------------------
@@ -108,6 +108,19 @@ namespace SQLite11
 
         //insertイベントハンドラ
         void InsertClicked(object sender, EventArgs e)
+        {
+
+
+            var InsertName = insertEntry.Text;
+            //Userテーブルに適当なデータを追加する
+            UserModel.insertUser(InsertName);
+
+
+
+        }
+
+        //insertイベントハンドラ
+        void InsertClicked2(object sender, EventArgs e)
         {
 
 
@@ -191,6 +204,6 @@ namespace SQLite11
             Content = scrollView;*/
 
 
-        }
+    }
     }
 

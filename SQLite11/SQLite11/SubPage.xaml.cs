@@ -37,14 +37,6 @@ namespace SQLite11
             layout.Children.Add(Delete);
             Delete.Clicked += DeleteClicked;
 
-            deleteEntry = new Entry
-            {
-                WidthRequest = 60,
-            };
-            layout.Children.Add(deleteEntry);
-            deleteId = int.Parse(deleteEntry.Text);
-
-
             Content = layout;
 
             //deleteイベントハンドラ
