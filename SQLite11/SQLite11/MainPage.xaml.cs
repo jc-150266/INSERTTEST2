@@ -114,7 +114,7 @@ namespace SQLite11
 
             var InsertName = insertEntry.Text;
             //Userテーブルに適当なデータを追加する
-            UserModel.insertUser(InsertName);
+            UserModel.insertUser(1,InsertName);
 
 
 
