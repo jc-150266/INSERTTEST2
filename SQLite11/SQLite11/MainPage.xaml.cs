@@ -68,7 +68,7 @@ namespace SQLite11
             {
                 WidthRequest = 60
             };
-            //layout.Children.Add(Insert);
+            layout.Children.Add(Insert);
             Insert.Clicked += InsertClicked2;
             layout.Children.Add(insertEntry);
 
@@ -122,11 +122,8 @@ namespace SQLite11
         //insertイベントハンドラ2
         void InsertClicked2(object sender, EventArgs e)
         {
-
-
-            var InsertName = insertEntry.Text;
-            //Userテーブルに適当なデータを追加する
-            UserModel.insertUser(InsertName);
+            var InsertName1 = insertEntry.Text;
+            UserModel.insertUser(InsertName1);
 
             Navigation.PushAsync(new SubPage());
 

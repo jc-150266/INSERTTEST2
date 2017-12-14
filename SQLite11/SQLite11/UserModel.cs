@@ -117,14 +117,6 @@ namespace SQLite11
                 }
             }
         }
-        public class updateUser
-        {
-
-            public bool Successful { get; set; }
-            public List<UserModel> ExecutedScripts { get; set; }
-
-        }
-
     }
 
 }
